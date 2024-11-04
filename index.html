@@ -1,9 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+<head>
+<script>
+function add()
+{
+  var numOne, numTwo, sum;
+  numOne = parseInt(document.getElementById("n1").value);
+  numTwo = parseInt(document.getElementById("n2").value);
+  sum = numOne + numTwo;
+  document.getElementById("sum").value = sum;
+}
+</script>
+</head>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<label>First Number: <input type="number" id="n1"></label>
+<label>Second Number: <input type="number" id="n2"></label>
+<button onclick="add()">Compute Sum</button>
+<br>
+<label>The sum is : <input id="sum"></label>
 
 </body>
 </html>
