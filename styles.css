@@ -1,13 +1,13 @@
 .w3-sidebar a {
     font-family: "Roboto", sans-serif;
-    font-size: 18px; /* Increased text size */
+    font-size: 18px;
 }
 
 body, h1, h2, h3, h4, h5, h6, .w3-wide {
     font-family: "Montserrat", sans-serif;
-    font-size: 20px; /* Increased text size */
+    font-size: 20px;
 }
 
 .w3-main {
-    margin-left: 250px; /* Sidebar width */
+    margin-left: 250px;
 }
