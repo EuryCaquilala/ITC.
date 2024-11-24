@@ -1,24 +1,79 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<script>
-function add()
-{
-  var numOne, numTwo, sum;
-  numOne = parseInt(document.getElementById("n1").value);
-  numTwo = parseInt(document.getElementById("n2").value);
-  sum = numOne + numTwo;
-  document.getElementById("sum").value = sum;
-}
-</script>
+    <title>My Navigation Hub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {font-family: "Lato", sans-serif; font-size: 20px;} 
+        .w3-bar-item {font-size: 24px;} 
+        h2 {font-size: 48px;} 
+        p {font-size: 24px;} 
+        .mySlides {display: none;}
+    </style>
 </head>
 <body>
 
-<label>First Number: <input type="number" id="n1"></label>
-<label>Second Number: <input type="number" id="n2"></label>
-<button onclick="add()">Compute Sum</button>
-<br>
-<label>The sum is : <input id="sum"></label>
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-padding-large w3-button" title="More">Assignment 1 <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="CelToFah.html" class="w3-bar-item w3-button">Celsius to Fahrenheit</a>
+                <a href="FahToCel.html" class="w3-bar-item w3-button">Fahrenheit to Celsius</a>
+                <a href="MeTFe.html" class="w3-bar-item w3-button">Meters to Feet</a>
+                <a href="FeTMe.html" class="w3-bar-item w3-button">Feet to Meters</a>
+            </div>
+        </div>
+
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-padding-large w3-button" title="More">Assignment 2 <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="IncTaxCalc.html" class="w3-bar-item w3-button">Income Tax Calculator</a>
+            </div>
+        </div>
+
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-padding-large w3-button" title="More">Assignment 3 <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="FactLoop.html" class="w3-bar-item w3-button">Factorial (While Loop)</a>
+                <a href="SumLoop.html" class="w3-bar-item w3-button">Sum (Do While Loop)</a>
+                <a href="AverLoop.html" class="w3-bar-item w3-button">Average (For Loop) of First N Natural Numbers</a>
+            </div>
+        </div>
+
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-padding-large w3-button" title="More">Assignment 4 <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="Payroll.html" class="w3-bar-item w3-button">Simple Payroll</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="welcome">
+        <h2 class="w3-wide">CS 1130 - Webpage Assignments</h2>
+        <p class="w3-opacity"><i>by Eurylius Josh V. Caquilala</i></p>
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.class ```html
+            .className.replace(" w3-show", "");
+        }
+    }
+</script>
 
 </body>
 </html>
