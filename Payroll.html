@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Payroll Management System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+        let payrollList = [];
+
+        function addEmployee() {
+            const employeeName = document.getElementById("employeeName").value;
+            const daysWorked = parseInt(document.getElementById("daysWorked").value);
+            const dailyRate = parseFloat(document.getElementById("dailyRate").value);
+            const deductionAmount = parseFloat(document.getElementById("deductionAmount").value);
+
+            if (employeeName && !isNaN(daysWorked) && !isNaN(dailyRate) && !isNaN(deductionAmount)) {
+                const grossPay = daysWorked * dailyRate;
+                const netPay = grossPay - deductionAmount;
+                const employee = {
+                    name: employeeName,
+                    daysWorked: daysWorked,
+                    dailyRate: dailyRate,
+                    grossPay: grossPay,
+                    deductionAmount: deductionAmount,
+                    netPay: netPay
+                };
+                payrollList.push(employee);
+                updateTable();
+                clearInputs();
+            } else {
+                alert("Please fill in all fields correctly.");
+            }
+        }
+
+        function deleteEmployee() {
+            const lineNumber = parseInt(document.getElementById("lineNumber").value);
+            if (!isNaN(lineNumber) && lineNumber > 0 && lineNumber <= payrollList.length) {
+                payrollList.splice(lineNumber - 1, 1);
+                updateTable();
+                document.getElementById("lineNumber").value = ''; // Clear input
+            } else {
+                alert("Invalid line number.");
+            }
+        }
+
+        function updateTable() {
+            const tableBody = document.getElementById("payrollTableBody");
+            tableBody.innerHTML = ""; // Clear existing rows
+
+            payrollList.forEach((employee, index) => {
+                const row = `<tr>
+                    <td>${index + 1}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.daysWorked}</td>
+                    <td>${employee.dailyRate.toFixed(2)}</td>
+                    <td>${employee.grossPay.toFixed(2)}</td>
+                    <td>${employee.deductionAmount.toFixed(2)}</td>
+                    <td>${employee.netPay.toFixed(2)}</td>
+                </tr>`;
+                tableBody.innerHTML += row; // Add new row
+            });
+        }
+
+        function clearInputs() {
+            document.getElementById("employeeName").value = '';
+            document.getElementById("daysWorked").value = '';
+            document.getElementById("dailyRate").value = '';
+            document.getElementById("deductionAmount").value = '';
+        }
+    </script>
+</head>
+<body>
+    <a href="index.html" class="w3-button w3-blue">Home</a>
+    <h1>Payroll Management System</h1>
+    
+    <h2>Add Employee</h2>
+    <label for="employeeName">Employee Name:</label>
+    <input type="text" id="employeeName" placeholder="Enter employee name" required />
+    <br>
+    <label for="daysWorked">Days Worked:</label>
+    <input type="number" id="daysWorked" placeholder="Enter days worked" required />
+    <br>
+    <label for="dailyRate">Daily Rate:</label>
+    <input type="number" id="dailyRate" placeholder="Enter daily rate" step="0.01" required />
+    <br>
+    <label for="deductionAmount">Deduction Amount:</label>
+    <input type="number" id="deductionAmount" placeholder="Enter deduction amount" step="0.01" required />
+    <br>
+    <button class="w3-button w3-green" onclick="addEmployee()">Add Employee</button>
+
+    <h2>Delete Employee</h2>
+    <label for="lineNumber">Line Number:</label>
+    <input type="number" id="lineNumber" placeholder="Enter line number to delete" required />
+    <button class="w3-button w3-red" onclick="deleteEmployee()">Delete Employee</button>
+
+    <h2>Payroll List</h2>
+    <table class="w3-table w3-bordered">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Employee Name</th>
+                <th>Days Worked</th>
+                <th>Daily Rate</th>
+                <th>Gross Pay</th>
+                <th>Deduction Amount</th>
+                <th>Net Pay</th>
+            </tr>
+        </thead>
+        <tbody id="payrollTableBody">
+        </tbody>
+    </table>
+</body>
+</html>

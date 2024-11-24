@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Meters to Feet Converter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+        function convertToFeet() {
+            var meters = document.getElementById("meters").value;
+            var feet = meters * 3.28084; // Conversion factor
+            document.getElementById("result").innerHTML = meters + " meters is " + feet.toFixed(2) + " feet";
+        }
+    </script>
+</head>
+<body>
+    <a href="index.html" class="w3-button w3-blue">Home</a>
+    <h1>Meters to Feet Converter</h1>
+    <input type="number" id="meters" placeholder="Enter meters" />
+    <button class="w3-button w3-green" onclick="convertToFeet()">Convert</button>
+    <p id="result"></p>
+</body>
+</html>
