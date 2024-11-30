@@ -5,26 +5,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script>
-        function calculateAverage() {
-            var number = parseInt(document.getElementById("number").value);
-            var sum = 0;
-
-            for (var i = 1; i <= number; i++) {
-                sum += i;
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .w3-main {
+                margin-left: 0;
             }
-
-            var average = sum / number;
-            document.getElementById("result").innerHTML = "Average of first " + number + " natural numbers is " + average.toFixed(2);
+            .w3-sidebar {
+                width: 100%;
+            }
         }
-    </script>
+    </style>
 </head>
-<body>
-    <a href="index.html" class="w3-button w3-blue">Home</a>
-    <h1>Average of First N Natural Numbers (For Loop)</h1>
-    <label for="number">Enter a number:</label>
-    <input type="number" id="number" placeholder="Enter a positive integer" />
-    <button class="w3-button w3-green" onclick="calculateAverage()">Calculate Average</button>
-    <p id="result"></p>
-</body>
+<body class="w3-content" style="max-width:1200px; font-size: 18px;">
+<!-- Navigation Bar -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-top" style="z-index:3;width:250px" id="mySidebar" role="navigation" aria-label="Main Navigation">
+    <div class="w3-container w3-display-container w3-padding-16">
+        <button onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright" aria-label="Close menu"></button>
+        <h3 class="w3-wide"><b>Assignments</b></h3>
+    </div>
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+        <a href="index.html" class="w3-bar-item w3-button" role="link">HOME</a>
+        
+        <div class="w3-dropdown-hover">
+            <button class="w3-padding-large w3-button" title="More" aria-haspopup="true" aria-expanded="false">Assignment 1 <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4" role="menu">
+                <a href="CelToFah.html" class="w3-bar-item w3-button" role="menuitem">Celsius to Fahrenheit</a>
+                <a href="FahToCel.html" class="w3-bar-item w3-button" role="menuitem">Fahrenheit to Celsius</a>
+                <a href="MeTFe.html" class="w3-bar-item w3-button" role="menuitem">Meters to Feet</a>
+                <a href="FeTMe.html" class="w3-bar-item w3-button" role="menuitem">Feet to Meters</a>
+            </div>
+        </div>
+        
+        <div class="w3-dropdown-hover">
+            <button class="w3-padding-large w3-button" title="More" aria-haspopup="true" aria-expanded="false">Assignment 2 <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4" role="menu">
+                <a href="IncTaxCalc.html" class="w3-bar-item w3-button" role="menuitem">Income Tax Calculator</a>
+            </div>
+        </div>
+        
+        <div class="w3-dropdown-hover">
+            <button class="w3-padding-large w3-button" title="More" aria-haspopup="true" aria-expanded="false">Assignment 3 <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4" role="menu">
+                <a href="FactLoop.html" class="w3-bar-item w3-button" role="menuitem">Factorial (While Loop)</a>
+                <a href="SumLoop.html" class="w3-bar-item w3-button" role="menuitem">Sum (Do While Loop)</a>
+                <a href="AverLoop.html" class="w3-bar-item w3-button" role="menuitem">Average (For Loop) of First N Natural Numbers</a>
+            </div>
+        </div>
+        
+        <div class="w3-dropdown-hover">
+            <button class="w3-padding-large w3-button" title="More" aria-haspopup="true" aria-expanded="false">Assignment 4 <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4" role="menu">
+                <a href="Payroll.html" class="w3-bar-item w3-button" role="menuitem ">Simple Payroll</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="w3-main" style="margin-left:250px">
+    <header class="w3-container w3-light-grey">
+        <h1>Average of First N Natural Numbers</h1>
+        <button class="w3-button w3-hide-large w3-right" onclick="w3_open()" aria-label="Open menu">
+            <i class="fa fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="w3-container">
+        <label for="number">Enter a number:</label>
+        <input type="number" id="number" placeholder="Enter a positive integer" />
+        <button class="w3-button w3-green" onclick="calculateAverage()">Calculate Average</button>
+        <p id="result"></p>
+    </div>
+</div>
+
+<script>
+    const calculateAverage = () => {
+        const number = parseInt(document.getElementById("number").value);
+        let sum = 0;
+
+        for (let i = 1; i <= number; i++) {
+            sum += i;
+        }
+
+        const average = sum / number;
+        document.getElementById("result").innerHTML = `Average of first ${number} natural numbers is ${average.toFixed(2)}`;
+    };
+</script>
+
 </html>
